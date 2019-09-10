@@ -1,0 +1,27 @@
+<mat-card class="mat-elevation-z4" style="margin: 1rem;">
+  <mat-card-title>
+    {{ boxConfig.name }}
+  </mat-card-title>
+  <mat-card-content>
+    <div style="margin: 1rem; padding: 16px;">
+      <h3 style="margin-top: 0">Lights</h3>
+      <div class="flex-row" style="align-items: center; ">
+        <img
+          src="assets/lightbulb-solid.svg"
+          style="height: 2rem; width: auto; margin-right: 1rem; opacity: 0.6;"
+        />
+        <mat-slide-toggle
+          (change)="onChange($event)"
+          [checked]="boxConfig.light.state === 'on'"
+          class="example-margin"
+          color="primary"
+        >
+        </mat-slide-toggle>
+      </div>
+    </div>
+    <app-box-settings-card
+      [box]="box"
+      *ngFor="let box of boxConfig?.boxes"
+    ></app-box-settings-card>
+  </mat-card-content>
+</mat-card>

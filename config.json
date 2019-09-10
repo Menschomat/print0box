@@ -1,0 +1,54 @@
+{
+  "name": "Druckschrank",
+  "light": {
+    "name": "Arbeitslicht",
+    "gpio": 15,
+    "type": "white"
+  },
+  "boxes": [
+    {
+      "id": "box1",
+      "name": "Schrotthaufen",
+      "location": "Fach 1",
+      "lights": [],
+      "fans": [
+        {
+          "id": "fan1",
+          "name": "Lüftung",
+          "gpio": 17
+        }
+      ],
+      "sensors": [
+        {
+          "name": "Temp 1",
+          "gpio": 14,
+          "type": "temp",
+          "unit": "c",
+          "value": 22.2
+        }
+      ]
+    },
+    {
+      "id": "box2",
+      "name": "Ultimaker",
+      "location": "Fach 2",
+      "lights": [],
+      "fans": [
+        {
+          "id": "fan1",
+          "name": "Lüftung",
+          "gpio": 17
+        }
+      ],
+      "sensors": [
+        {
+          "name": "Temp 1",
+          "gpio": 14,
+          "type": "temp",
+          "unit": "c",
+          "value": 22.2
+        }
+      ]
+    }
+  ]
+}

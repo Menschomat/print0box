@@ -1,0 +1,33 @@
+{
+  "name": "Druckschrank",
+  "lights": {
+    "name": "Arbeitslicht",
+    "gpio": 15,
+    "type": "white",
+    "on": false
+  },
+  "boxes": [
+    {
+      "id": "1",
+      "name": "Ultimaker",
+      "location": "Fach 2",
+      "lights": [],
+      "fans": [
+        {
+          "name": "Lüftung",
+          "gpio": 12,
+          "on": false
+        }
+      ],
+      "sensors": [
+        {
+          "name": "Temp 1",
+          "gpio": 14,
+          "type": "temp",
+          "unit": "c",
+          "value": 22.2
+        }
+      ]
+    }
+  ]
+}
