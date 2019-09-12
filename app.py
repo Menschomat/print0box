@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, send_from_directory
 import RPi.GPIO as GPIO
 import json
 
@@ -17,6 +17,16 @@ with open('config.json') as config_file:
             fan['state'] = "off"
 
 
+@app.route('/<path:path>', methods=['GET'])
+def static_proxy(path):
+    return send_from_directory('static', path)
+
+
+@app.route('/')
+def root():
+    return send_from_directory('static', 'index.html')
+
+
 @app.route('/api/config')
 def get_config():
     return config
@@ -31,7 +41,7 @@ def set_enclosure_light():
     elif state == 'off':
         GPIO.output(config['light']['gpio'], GPIO.HIGH)
         config['light']['state'] = "off"
-    return json.dumps({'success':True}), 200, {'ContentType':'application/json'}
+    return json.dumps({'success': True}), 200, {'ContentType': 'application/json'}
 
 
 @app.route("/api/<box_id>/fan/<fan_id>")
@@ -48,9 +58,9 @@ def set_fan_state(box_id, fan_id):
             else:
                 GPIO.output(fan['gpio'], GPIO.HIGH)
                 fan['state'] = "off"
-            return json.dumps({'success':True}), 200, {'ContentType':'application/json'}
-        return json.dumps({'success':False}), 400, {'ContentType':'application/json'}
-    return json.dumps({'success':False}), 400, {'ContentType':'application/json'}
+            return json.dumps({'success': True}), 200, {'ContentType': 'application/json'}
+        return json.dumps({'success': False}), 400, {'ContentType': 'application/json'}
+    return json.dumps({'success': False}), 400, {'ContentType': 'application/json'}
 
 
 if __name__ == '__main__':
