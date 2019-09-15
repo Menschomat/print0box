@@ -109,3 +109,4 @@ yarn-error.log
 .bazelrc.user
 /Pipfile.lock
 __pycache__/app.cpython-37.pyc
+static/
