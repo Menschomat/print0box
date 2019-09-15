@@ -107,3 +107,5 @@ yarn-error.log
 
 # User specific bazel settings
 .bazelrc.user
+/Pipfile.lock
+__pycache__/app.cpython-37.pyc
